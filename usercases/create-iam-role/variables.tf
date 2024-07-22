@@ -1,7 +1,3 @@
-variable "aws_region" {
-  type = string
-}
-
 variable "policy_name" {
   type = string
 }

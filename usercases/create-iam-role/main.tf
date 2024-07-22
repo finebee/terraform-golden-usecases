@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.aws_region
-}
-
 data "aws_iam_policy_document" "policy" {
   statement {
     actions   = var.policy_actions
