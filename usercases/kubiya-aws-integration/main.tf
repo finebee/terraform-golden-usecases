@@ -4,7 +4,7 @@ provider "aws" {
   secret_key = var.aws_secret_key
 }
 
-data "aws_iam_policy_document" "policy_doc" {
+data "aws_iam_policy_document" "policy" {
   statement {
     actions   = var.policy_actions
     resources = var.policy_resources
@@ -28,7 +28,7 @@ resource "aws_iam_role" "role" {
 
 resource "aws_iam_policy" "policy" {
   name   = var.policy_name
-  policy = data.aws_iam_policy_document.policy_doc.json
+  policy = data.aws_iam_policy_document.policy.json
 }
 
 resource "aws_iam_role_policy_attachment" "attachment" {
