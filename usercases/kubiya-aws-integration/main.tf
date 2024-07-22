@@ -36,15 +36,13 @@ resource "aws_iam_role_policy_attachment" "attachment" {
   policy_arn = aws_iam_policy.policy.arn
 }
 
-provider "kubiya" {}
-
 resource "kubiya_integration" "integration" {
   depends_on = [
     aws_iam_role.role,
     aws_iam_policy.policy
   ]
-  name        = var.integration_name
-  description = var.integration_description
+  name        = var.kubiya_integration_name
+  description = var.kubiya_integration_description
 
   config = [
     {

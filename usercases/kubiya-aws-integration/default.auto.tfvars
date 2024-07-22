@@ -1,0 +1,12 @@
+aws_region                     = "eu-west-1"
+aws_access_key                 = "aws_access_key"
+aws_secret_key                 = "aws_secret_key"
+policy_name                    = "policy_name"
+role_name                      = "role_name"
+policy_actions                 = ["ec2:Describe*"]
+assume_role_actions            = ["sts:AssumeRole"]
+policy_resources               = ["*"]
+assume_role_principals_type    = "AWS"
+kubiya_account_id              = "595218598350"
+kubiya_integration_name        = "integration_name"
+kubiya_integration_description = "integration_description"
