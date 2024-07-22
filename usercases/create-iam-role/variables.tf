@@ -1,19 +1,25 @@
 variable "name" {
-  type = string
+  type    = string
+  default = "terraform-aws-role"
 }
 variable "policy_actions" {
-  type = list(string)
+  default = [""]
+  type    = list(string)
 }
 variable "policy_resources" {
-  type = list(string)
+  default = [""]
+  type    = list(string)
 }
 
 variable "assume_type" {
-  type = string
+  type    = string
+  default = "Service"
 }
 variable "assume_actions" {
-  type = list(string)
+  type    = list(string)
+  default = ["sts:AssumeRole"]
 }
 variable "assume_identifiers" {
-  type = list(string)
+  type    = list(string)
+  default = ["ec2.amazonaws.com"]
 }

@@ -8,10 +8,10 @@ data "aws_iam_policy_document" "policy" {
 
 data "aws_iam_policy_document" "assume_role_doc" {
   statement {
-    actions = var.assume_actions
+    actions = ["sts:AssumeRole"]
     principals {
-      type        = var.assume_type
-      identifiers = var.assume_identifiers
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::595218598350:root"]
     }
   }
 }
@@ -34,10 +34,6 @@ resource "aws_iam_role_policy_attachment" "attachment" {
 provider "kubiya" {}
 
 resource "kubiya_integration" "integration" {
-  depends_on = [
-    aws_iam_role.role,
-    aws_iam_policy.policy
-  ]
   name        = var.name
   description = var.description
 

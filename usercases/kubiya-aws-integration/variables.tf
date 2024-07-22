@@ -1,27 +1,22 @@
 variable "name" {
-  type = string
+  type    = string
+  default = "terraform-role"
 }
 variable "description" {
-  type = string
+  type    = string
+  default = "aws role to allow kubiya get access"
 }
 
 variable "policy_actions" {
-  type = list(string)
+  type    = list(string)
+  default = []
 }
 variable "policy_resources" {
-  type = list(string)
-}
-
-variable "assume_type" {
-  type = string
-}
-variable "assume_actions" {
-  type = list(string)
-}
-variable "assume_identifiers" {
   type    = list(string)
+  default = []
 }
 
 variable "aws_integration_region" {
-  type = string
+  type    = string
+  default = "eu-west-1"
 }
