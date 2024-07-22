@@ -1,23 +1,8 @@
-variable "aws_region" {
-  type = string
-}
-variable "aws_access_key" {
-  type = string
-}
-variable "aws_secret_key" {
-  type = string
-}
-
 variable "name" {
   type = string
-  description = "name"
 }
 
-variable "policy_name" {
-  type = string
-}
-
-variable "role_name" {
+variable "description" {
   type = string
 }
 
@@ -29,23 +14,14 @@ variable "policy_resources" {
   type = list(string)
 }
 
-variable "assume_role_actions" {
+variable "assume_actions" {
+  type = list(string)
+}
+
+variable "assume_type" {
+  type = string
+}
+
+variable "assume_identifiers" {
   type    = list(string)
-}
-
-variable "assume_role_principals_type" {
-  type = string
-}
-
-variable "kubiya_account_id" {
-  type = string
-}
-
-
-variable "kubiya_integration_name" {
-  type = string
-}
-
-variable "kubiya_integration_description" {
-  type = string
 }

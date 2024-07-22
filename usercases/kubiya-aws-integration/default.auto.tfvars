@@ -1,9 +1,9 @@
-policy_name                    = "policy_name"
-role_name                      = "role_name"
-policy_actions                 = ["ec2:Describe*"]
-assume_role_actions            = ["sts:AssumeRole"]
-policy_resources               = ["*"]
-assume_role_principals_type    = "AWS"
-kubiya_account_id              = "595218598350"
-kubiya_integration_name        = "integration_name"
-kubiya_integration_description = "integration_description"
+name        = "terraform-role"
+description = "aws role to allow kubiya get access"
+
+policy_resources = ["*"]
+policy_actions   = ["ec2:Describe*"]
+
+assume_type        = "AWS"
+assume_actions     = ["sts:AssumeRole"]
+assume_identifiers = ["arn:aws:iam::595218598350:root"]

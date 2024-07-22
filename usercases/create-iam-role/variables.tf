@@ -1,25 +1,19 @@
-variable "aws_region" {
+variable "name" {
   type = string
 }
-variable "aws_access_key" {
-  type = string
-}
-variable "aws_secret_key" {
-  type = string
-}
-
-variable "policy_name" {
-  type = string
-}
-
-variable "role_name" {
-  type = string
-}
-
 variable "policy_actions" {
   type = list(string)
 }
-
 variable "policy_resources" {
+  type = list(string)
+}
+
+variable "assume_type" {
+  type = string
+}
+variable "assume_actions" {
+  type = list(string)
+}
+variable "assume_identifiers" {
   type = list(string)
 }

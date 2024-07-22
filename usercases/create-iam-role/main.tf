@@ -7,20 +7,20 @@ data "aws_iam_policy_document" "policy" {
 }
 data "aws_iam_policy_document" "assume_policy" {
   statement {
-    actions = ["sts:AssumeRole"]
+    actions = var.assume_actions
     principals {
-      type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
+      type        = var.assume_type
+      identifiers = var.assume_identifiers
     }
   }
 }
 
 resource "aws_iam_role" "role" {
-  name               = var.role_name
+  name               = var.name
   assume_role_policy = data.aws_iam_policy_document.assume_policy.json
 }
 resource "aws_iam_policy" "policy" {
-  name   = var.policy_name
+  name   = var.name
   policy = data.aws_iam_policy_document.policy.json
 }
 

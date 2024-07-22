@@ -8,10 +8,10 @@ data "aws_iam_policy_document" "policy" {
 
 data "aws_iam_policy_document" "assume_role_doc" {
   statement {
-    actions = var.assume_role_actions
+    actions = var.assume_actions
     principals {
-      type        = var.assume_role_principals_type
-      identifiers = ["arn:aws:iam::${var.kubiya_account_id}:root"]
+      type        = var.assume_type
+      identifiers = var.assume_identifiers
     }
   }
 }
@@ -38,12 +38,12 @@ resource "kubiya_integration" "integration" {
     aws_iam_role.role,
     aws_iam_policy.policy
   ]
-  name        = var.kubiya_integration_name
-  description = var.kubiya_integration_description
+  name        = var.name
+  description = var.description
 
   configs = [
     {
-      name       = aws_iam_role.role.name
+      name       = var.name
       is_default = true
       vendor_specific = {
         region = var.aws_region
