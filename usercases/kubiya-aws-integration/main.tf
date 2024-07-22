@@ -43,11 +43,11 @@ resource "kubiya_integration" "integration" {
 
   configs = [
     {
-      name       = var.name
       is_default = true
+      name       = var.name
       vendor_specific = {
-        region = var.aws_region
         arn    = aws_iam_role.role.arn
+        region = var.aws_integration_region
       }
     }
   ]
