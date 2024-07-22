@@ -42,7 +42,7 @@ resource "kubiya_integration" "integration" {
   name        = var.kubiya_integration_name
   description = var.kubiya_integration_description
 
-  config = [
+  configs = [
     {
       name       = aws_iam_role.role.name
       is_default = true
