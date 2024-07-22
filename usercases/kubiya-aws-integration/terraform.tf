@@ -9,7 +9,6 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.28.00"
     }
 
     kubiya = {

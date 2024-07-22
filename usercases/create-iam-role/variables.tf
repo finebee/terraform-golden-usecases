@@ -1,3 +1,18 @@
+variable "aws_region" {
+  type    = string
+  default = "eu-west-1"
+  description = "aws regsion"
+}
+variable "aws_access_key" {
+  type = string
+  description = "aws auth details"
+}
+
+variable "aws_secret_key" {
+  type = string
+  description = "aws auth details"
+}
+
 variable "name" {
   type        = string
   default     = "terraform_ec2_admin"
