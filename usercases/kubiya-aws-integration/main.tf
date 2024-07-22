@@ -1,8 +1,4 @@
-provider "aws" {
-  region = var.aws_region
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
-}
+provider "aws" {}
 data "aws_iam_policy_document" "policy" {
   statement {
     actions   = var.policy_actions
@@ -21,12 +17,12 @@ data "aws_iam_policy_document" "assume_role_doc" {
 }
 
 resource "aws_iam_role" "role" {
-  name               = var.role_name
+  name               = var.name
   assume_role_policy = data.aws_iam_policy_document.assume_role_doc.json
 }
 
 resource "aws_iam_policy" "policy" {
-  name   = var.policy_name
+  name   = var.name
   policy = data.aws_iam_policy_document.policy.json
 }
 

@@ -8,6 +8,11 @@ variable "aws_secret_key" {
   type = string
 }
 
+variable "name" {
+  type = string
+  description = "name"
+}
+
 variable "policy_name" {
   type = string
 }

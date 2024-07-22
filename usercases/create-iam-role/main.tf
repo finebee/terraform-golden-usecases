@@ -1,8 +1,4 @@
-provider "aws" {
-  region = var.aws_region
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
-}
+provider "aws" {}
 data "aws_iam_policy_document" "policy" {
   statement {
     actions   = var.policy_actions
