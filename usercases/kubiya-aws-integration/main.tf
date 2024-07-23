@@ -1,12 +1,13 @@
 provider "aws" {}
 data "aws_iam_policy_document" "policy" {
   statement {
+    effect    = var.policy_effect
     actions   = var.policy_actions
     resources = var.policy_resources
   }
 }
 
-data "aws_iam_policy_document" "assume_role_doc" {
+data "aws_iam_policy_document" "assume" {
   statement {
     actions = ["sts:AssumeRole"]
     principals {
@@ -18,7 +19,7 @@ data "aws_iam_policy_document" "assume_role_doc" {
 
 resource "aws_iam_role" "role" {
   name               = var.name
-  assume_role_policy = data.aws_iam_policy_document.assume_role_doc.json
+  assume_role_policy = data.aws_iam_policy_document.assume.json
 }
 
 resource "aws_iam_policy" "policy" {
@@ -36,6 +37,8 @@ provider "kubiya" {}
 resource "kubiya_integration" "integration" {
   name        = var.name
   description = var.description
+  auth_type = var.integration_auth_type
+  integration_type = var.integration_type
 
   configs = [
     {
@@ -43,7 +46,7 @@ resource "kubiya_integration" "integration" {
       name       = var.name
       vendor_specific = {
         arn    = aws_iam_role.role.arn
-        region = var.aws_integration_region
+        region = var.integration_region
       }
     }
   ]
