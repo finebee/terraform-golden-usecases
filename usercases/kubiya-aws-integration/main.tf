@@ -11,7 +11,7 @@ data "aws_iam_policy_document" "assume_role_doc" {
     actions = ["sts:AssumeRole"]
     principals {
       type        = "AWS"
-      identifiers = ["arn:aws:iam::595218598350:root"]
+      identifiers = ["arn:aws:iam::564407622114:root"]
     }
   }
 }
