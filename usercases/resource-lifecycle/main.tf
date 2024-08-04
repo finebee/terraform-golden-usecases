@@ -5,10 +5,10 @@ resource "kubiya_agent" "agent" {
   instructions = var.agent_instructions
   model        = var.llm_model
   image        = var.agent_image
-  secrets      = var.secrets
-  integrations = var.integrations
-  users        = var.users
-  groups       = var.groups
+  secrets      = var.kubiya_secrets
+  integrations = var.kubiya_integrations
+  users        = var.kubiya_users
+  groups       = var.kubiya_groups
   links        = var.links
   tool_sources = var.agent_tool_sources
 

@@ -46,25 +46,25 @@ variable "agent_image" {
   default     = ""
 }
 
-variable "secrets" {
+variable "kubiya_secrets" {
   description = "Secrets for the agent"
   type        = list(string)
   default     = []
 }
 
-variable "integrations" {
+variable "kubiya_integrations" {
   description = "Integrations for the agent"
   type        = list(string)
   default     = []
 }
 
-variable "users" {
+variable "kubiya_users" {
   description = "Users for the agent"
   type        = list(string)
   default     = []
 }
 
-variable "groups" {
+variable "kubiya_groups" {
   description = "Groups for the agent"
   type        = list(string)
   default     = []
