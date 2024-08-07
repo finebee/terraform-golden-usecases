@@ -1,13 +1,11 @@
 variable "agent_name" {
   description = "Name of the agent"
   type        = string
-  default     = ""
 }
 
 variable "kubiya_runner" {
   description = "Runner for the agent"
   type        = string
-  default     = ""
 }
 
 variable "store_tf_state_enabled" {
@@ -25,49 +23,41 @@ variable "approval_workflow_enabled" {
 variable "agent_description" {
   description = "Description of the agent"
   type        = string
-  default     = ""
 }
 
 variable "agent_instructions" {
   description = "Instructions for the agent"
   type        = string
-  default     = ""
 }
 
 variable "llm_model" {
   description = "Model to be used by the agent"
   type        = string
-  default     = ""
 }
 
 variable "agent_image" {
   description = "Image for the agent"
   type        = string
-  default     = ""
 }
 
-variable "kubiya_secrets" {
+variable "secrets" {
   description = "Secrets for the agent"
   type        = list(string)
-  default     = []
 }
 
-variable "kubiya_integrations" {
+variable "integrations" {
   description = "Integrations for the agent"
   type        = list(string)
-  default     = []
 }
 
-variable "kubiya_users" {
+variable "users" {
   description = "Users for the agent"
   type        = list(string)
-  default     = []
 }
 
-variable "kubiya_groups" {
+variable "groups" {
   description = "Groups for the agent"
   type        = list(string)
-  default     = []
 }
 
 variable "agent_tool_sources" {
@@ -103,7 +93,6 @@ variable "max_ttl" {
 variable "approval_slack_channel" {
   description = "Slack channel for approval notifications"
   type        = string
-  default     = ""
 }
 
 variable "tf_modules_urls" {
@@ -127,7 +116,6 @@ variable "extension_period" {
 variable "approving_users" {
   description = "List of users who can approve"
   type        = list(string)
-  default     = []
 }
 
 variable "debug" {

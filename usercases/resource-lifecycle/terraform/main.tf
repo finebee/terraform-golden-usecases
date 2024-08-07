@@ -1,3 +1,15 @@
+terraform {
+  required_providers {
+    kubiya = {
+      source = "kubiya-terraform/kubiya"
+    }
+  }
+}
+
+provider "kubiya" {
+  // API key is set as an environment variable KUBIYA_API_KEY
+}
+
 resource "kubiya_agent" "agent" {
   name         = var.agent_name
   runner       = var.kubiya_runner
@@ -5,10 +17,10 @@ resource "kubiya_agent" "agent" {
   instructions = var.agent_instructions
   model        = var.llm_model
   image        = var.agent_image
-  secrets      = var.kubiya_secrets
-  integrations = var.kubiya_integrations
-  users        = var.kubiya_users
-  groups       = var.kubiya_groups
+  secrets      = var.secrets
+  integrations = var.integrations
+  users        = var.users
+  groups       = var.groups
   links        = var.links
   tool_sources = var.agent_tool_sources
 
@@ -29,4 +41,8 @@ resource "kubiya_agent" "agent" {
     var.debug ? { KUBIYA_DEBUG = "1" } : {},
     var.dry_run ? { DRY_RUN_ENABLED = "1" } : {}
   )
+}
+
+output "agent" {
+  value = kubiya_agent.agent
 }
