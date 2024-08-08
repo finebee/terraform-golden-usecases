@@ -25,37 +25,22 @@ variable "agent_description" {
   type        = string
 }
 
-variable "agent_instructions" {
-  description = "Instructions for the agent"
-  type        = string
-}
-
-variable "llm_model" {
-  description = "Model to be used by the agent"
-  type        = string
-}
-
-variable "agent_image" {
-  description = "Image for the agent"
-  type        = string
-}
-
-variable "secrets" {
+variable "kubiya_secrets" {
   description = "Secrets for the agent"
   type        = list(string)
 }
 
-variable "integrations" {
+variable "kubiya_integrations" {
   description = "Integrations for the agent"
   type        = list(string)
 }
 
-variable "users" {
+variable "kubiya_users" {
   description = "Users for the agent"
   type        = list(string)
 }
 
-variable "groups" {
+variable "kubiya_groups" {
   description = "Groups for the agent"
   type        = list(string)
 }
@@ -113,7 +98,7 @@ variable "extension_period" {
   default     = "1w"
 }
 
-variable "approving_users" {
+variable "kubiya_users_approving_users" {
   description = "List of users who can approve"
   type        = list(string)
 }
